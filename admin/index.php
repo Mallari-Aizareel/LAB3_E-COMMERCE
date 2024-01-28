@@ -112,12 +112,17 @@ include "../config/deleteProduct.php";
 <!-- Insertion/Edit form -->
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
     <input type="hidden" name="product_id_edit" value="<?php echo isset($productIdToEdit) ? $productIdToEdit : ''; ?>">
+    
     <label for="product_name">Product Name:</label>
     <input type="text" name="product_name" value="<?php echo isset($editProductName) ? $editProductName : ''; ?>" required>
     <br>
 
     <label for="product_price">Product Price:</label>
     <input type="text" name="product_price" value="<?php echo isset($editProductPrice) ? $editProductPrice : ''; ?>" required>
+    <br>
+
+    <label for="product_image">Product Image:</label>
+    <input type="file" name="product_image" accept="image/*">
     <br>
 
     <?php if (isset($productIdToEdit) && !empty($productIdToEdit)) : ?>
@@ -128,7 +133,6 @@ include "../config/deleteProduct.php";
         <input type="submit" value="Insert Product">
     <?php endif; ?>
 </form>
-
 
 
   
