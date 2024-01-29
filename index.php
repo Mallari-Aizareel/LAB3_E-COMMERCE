@@ -40,9 +40,9 @@ $result = mysqli_query($conn, $sql);
 
     <style>
         #header {
-            background-color: #FFFBFB;
-            border-top: 1px solid darkred;
-            border-bottom: 1px solid darkred;
+          background-color: #FFFBFB;
+          border-top: 1px solid darkred;
+          border-bottom: 1px solid darkred;
 /*            height: 60px;*/
         }
 
@@ -69,16 +69,138 @@ $result = mysqli_query($conn, $sql);
 
         .card {
             margin-right: 55px; 
+            background-color: #A95C53 ;
         }
 
         .card:last-child {
             margin-right: 0;
         }
 
+        .card-body {
+          background-color: #A95C53 ;
+          color: white;
+        }
+
+        .button {
+          margin-left: 150px;
+          background-color: #A95C53;
+          border: 1px solid #F99A8E;
+          border-radius: 5px;
+          padding: 8px;
+          color: white;
+        }
+        
+        .button:hover{
+          background-color: #F99A8E;
+          border: 1px solid #F99A8E;
+          color: white;
+        }
+        
+                /*--------------------------------------------------------------
+        # Footer
+        --------------------------------------------------------------*/
         .footer {
-            background-color: #1B1B1B;
-            color: white; /* Set text color to white or any other contrasting color */
-            padding: 50px 0; /* Adjust padding as needed */
+          overflow: hidden;
+          background: rgba(var(--color-black-rgb), 0.9);
+          font-size: 16px;
+          color: rgba(var(--color-white-rgb), 0.7);
+        }
+
+        .footer .footer-content {
+          padding: 60px 0;
+        }
+
+        .footer a.footer-link-more {
+          color: rgba(var(--color-white-rgb), 0.7);
+          display: inline-block;
+          position: relative;
+        }
+
+        .footer a.footer-link-more:before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: var(--color-white);
+        }
+
+        .footer a.footer-link-more:hover {
+          color: rgba(var(--color-white-rgb), 1);
+        }
+
+        .footer .footer-heading {
+          color: var(--color-white);
+          margin-bottom: 20px;
+          padding-bottom: 10px;
+          font-size: 18px;
+        }
+
+        .footer .footer-blog-entry li {
+          margin-bottom: 20px;
+          display: block;
+        }
+
+        .footer .footer-blog-entry li a .post-meta {
+          font-size: 10px;
+          letter-spacing: 0.07rem;
+          text-transform: uppercase;
+          font-weight: 400;
+          font-family: var(--font-secondary);
+          color: rgba(var(--color-white-rgb), 0.4);
+          margin-bottom: 0px;
+        }
+
+        .footer .footer-blog-entry li a img {
+          flex: 0 0 50px;
+          width: 50px;
+        }
+
+        .footer .footer-links li {
+          margin-bottom: 10px;
+        }
+
+        .footer .footer-links li a {
+          color: rgba(var(--color-white-rgb), 0.7);
+        }
+
+        .footer .footer-links li a:hover,
+        .footer .footer-links li a:focus {
+          color: rgba(var(--color-white-rgb), 1);
+        }
+
+        .footer .footer-legal {
+          background: var(--color-black);
+          padding: 40px 0;
+        }
+
+        .footer .footer-legal .social-links a {
+          text-align: center;
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          background-color: rgba(var(--color-white-rgb), 0.09);
+          border-radius: 50%;
+          color: var(--color-white);
+          line-height: 40px;
+        }
+
+        .footer .footer-legal .social-links a:hover {
+          background-color: rgba(var(--color-white-rgb), 0.2);
+        }
+
+        .footer .copyright strong {
+          font-weight: 400;
+        }
+
+        .footer .credits {
+          padding-top: 6px;
+          font-size: 13px;
+        }
+
+        .footer .credits a {
+          color: var(--color-white);
         }
 
     </style>
@@ -196,7 +318,7 @@ $result = mysqli_query($conn, $sql);
               <div class="card-body">
                 <h5 class="card-title"><?php echo $row['name']; ?></h5>
                <p class="card-text">Price: <?php echo $row['price']; ?></p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <button class="button">Buy Now</button>
               </div>
             </div>
             <?php
@@ -214,14 +336,82 @@ $result = mysqli_query($conn, $sql);
     <br/><br/><br/><br/><br/>
 
   <!-- ======= Footer ======= -->
+  <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
+
+    <div class="footer-content">
+      <div class="container">
+
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <h3 class="footer-heading">ABOUT AICE</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
+            <p><a href="about.html" class="footer-link-more">Learn More</a></p>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">NAVIGATION</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="index.php"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> About</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Products</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Contact</a></li>
+              <li><a href="login.php"><i class="bi bi-chevron-right"></i> Login</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">SHOP WITH US</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Valentine's Day</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Thank You</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Everyday Occasions</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Corporate Gifts</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Birthday</a></li>
+
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">CONTACT US</h3>
+            <ul class="footer-links list-unstyled">
+            <li><a href="#">info@aicecookie.com</a></li>
+            <li><a href="#">0969-7499-959</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">FOLLOW US</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="" class="twitter"><i class="bi bi-twitter"></i></a>&nbsp &nbsp &nbsp 
+                <a href="" class="facebook"><i class="bi bi-facebook"></i></a>&nbsp &nbsp &nbsp 
+                <a href="" class="instagram"><i class="bi bi-instagram"></i></a>
+             </li>
+            </ul>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="footer-legal">
       <div class="container">
+
+        <div class="row justify-content-between">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <div class="copyright">
+              © Copyright <strong><span>Aice</span></strong>. All Rights Reserved
+            </div>
+
+            <div class="credits">
+              Designed by <a href="#">BootstrapMade</a>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
 
   </footer>
+
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
