@@ -203,6 +203,35 @@ $result = mysqli_query($conn, $sql);
           color: var(--color-white);
         }
 
+        .form-control.rounded {
+          max-width: 400px;
+          font-size: 14px; 
+          border-color: #EBA163 ;
+           box-shadow: 0 0 0 0.2rem rgba(255, 218, 185, 0.25) ; 
+        }
+
+        .input-group {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .btn-outline-warning {
+          border-color: orange;
+          color: white;
+          background-color: #EBA163;
+        }
+
+        .btn-outline-warning:hover {
+          background-color: #EBA163 ;
+          color: white;
+        }
+
+        .btn-outline-primary:active {
+          box-shadow: 0 0 0 0.2rem rgba(255, 218, 185, 0.25), inset 0 2px 5px rgba(0, 0, 0, 0.125); 
+        } 
+
+
     </style>
 
 
@@ -305,6 +334,11 @@ $result = mysqli_query($conn, $sql);
 
     <div class="container mt-5" id="products">
         <h2 style="text-align: center;">Our Product </h2><br/>
+
+        <div class="input-group">
+          <input type="search" class="form-control rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <button type="button" class="btn btn-outline-warning" data-mdb-ripple-init>Search</button>
+        </div><br/>
 
         <div class="row">
             <?php
