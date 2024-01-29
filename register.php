@@ -1,7 +1,7 @@
 <?php
 // Include your database connection file (dbcon.php)
 include "config/dbcon.php";
-include "registerUser.php";
+include "config/registerUser.php";
 ?>
 
 <!DOCTYPE html>
