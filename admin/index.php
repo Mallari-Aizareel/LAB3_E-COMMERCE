@@ -205,8 +205,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["addUser"])) {
   <!-- Main content container -->
   <div id="main-content">
      <!-- Header -->
-     <header class="py-3 mb-3 border-bottom ">
-    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+     <header class="py-3 mb-3 border-bottom " style="background-color: #a95c53;">
+    <div class="container-fluid d-grid  align-items-center" style="grid-template-columns: 1fr 2fr;">
                   
                   
                 <div class="dropdown">
@@ -527,7 +527,7 @@ $result = mysqli_query($conn, $sql);
 
 </div>
 
-
+<div class="b-example-divider"></div>
 
 </body>
 

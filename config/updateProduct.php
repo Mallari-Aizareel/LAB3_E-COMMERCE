@@ -8,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     // Update the product in the database
     $updateQuery = "UPDATE products SET name='$updatedProductName', price='$updatedProductPrice' WHERE id='$productIdToUpdate'";
     if (mysqli_query($conn, $updateQuery)) {
-        echo "Product updated successfully!";
+        echo "<script>alert('Product updated successfully!');</script>";
 
         // Redirect to reset the form
         header("Location: {$_SERVER['PHP_SELF']}");
         exit();
     } else {
-        echo "Error updating product: " . mysqli_error($conn);
+        echo "<script>alert('Error updating product: " . mysqli_error($conn) . "');</script>";
     }
 }
 ?>

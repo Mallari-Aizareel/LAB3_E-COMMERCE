@@ -68,11 +68,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             } else {
                 // Password is incorrect
-                echo "Invalid password. ";
+                echo "<script>alert('Invalid password.');</script>";
             }
         } else {
             // User not found in the database
-            echo "Invalid username or password.";
+            echo "<script>alert('Invalid username or password.');</script>";
         }
     }
 }

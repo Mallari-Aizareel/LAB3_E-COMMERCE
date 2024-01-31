@@ -1,6 +1,7 @@
 <?php
 include "config/dbcon.php";
 
+
 // Fetch data from the 'products' table
 $sql = "SELECT id, name, price, image FROM products";
 $result = mysqli_query($conn, $sql);
@@ -16,6 +17,10 @@ $result = mysqli_query($conn, $sql);
      <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<!-- Bootstrap Icons CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.20.0/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,206 +40,11 @@ $result = mysqli_query($conn, $sql);
     <!-- Template Main CSS Files -->
     <link href="css/main.css" rel="stylesheet">
     <link href="css/variables.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 
 </head>
 
-    <style>
-
-        #header { 
-            background-color: #FFFBFB;
-            border-top: 1px solid darkred;
-            border-bottom: 1px solid darkred;
-
-/*            height: 60px;*/
-        }
-
-        .header {
-          height: 60px;
-          transition: all 0.5s;
-          z-index: 997;
-        }
-
-        .header.sticked {
-          height: 70px;
-        }
-
-        .header .logo h1 {
-          font-size: 40px;
-          font-weight: 700;
-          color: darkred;
-          font-family: ArcherBold, Cursive;
-        }
-
-      /*  #products {
-            margin-top: 50px; 
-        }*/
-
-        .card {
-            margin-right: 55px; 
-            background-color: #A95C53 ;
-        }
-
-        .card:last-child {
-            margin-right: 0;
-        }
-
-        .card-body {
-          background-color: #A95C53 ;
-          color: white;
-        }
-
-        .button {
-          margin-left: 150px;
-          background-color: #A95C53;
-          border: 1px solid #F99A8E;
-          border-radius: 5px;
-          padding: 8px;
-          color: white;
-        }
-        
-        .button:hover{
-          background-color: #F99A8E;
-          border: 1px solid #F99A8E;
-          color: white;
-        }
-        
-                /*--------------------------------------------------------------
-        # Footer
-        --------------------------------------------------------------*/
-        .footer {
-          overflow: hidden;
-          background: rgba(var(--color-black-rgb), 0.9);
-          font-size: 16px;
-          color: rgba(var(--color-white-rgb), 0.7);
-        }
-
-        .footer .footer-content {
-          padding: 60px 0;
-        }
-
-        .footer a.footer-link-more {
-          color: rgba(var(--color-white-rgb), 0.7);
-          display: inline-block;
-          position: relative;
-        }
-
-        .footer a.footer-link-more:before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 1px;
-          background: var(--color-white);
-        }
-
-        .footer a.footer-link-more:hover {
-          color: rgba(var(--color-white-rgb), 1);
-        }
-
-        .footer .footer-heading {
-          color: var(--color-white);
-          margin-bottom: 20px;
-          padding-bottom: 10px;
-          font-size: 18px;
-        }
-
-        .footer .footer-blog-entry li {
-          margin-bottom: 20px;
-          display: block;
-        }
-
-        .footer .footer-blog-entry li a .post-meta {
-          font-size: 10px;
-          letter-spacing: 0.07rem;
-          text-transform: uppercase;
-          font-weight: 400;
-          font-family: var(--font-secondary);
-          color: rgba(var(--color-white-rgb), 0.4);
-          margin-bottom: 0px;
-        }
-
-        .footer .footer-blog-entry li a img {
-          flex: 0 0 50px;
-          width: 50px;
-        }
-
-        .footer .footer-links li {
-          margin-bottom: 10px;
-        }
-
-        .footer .footer-links li a {
-          color: rgba(var(--color-white-rgb), 0.7);
-        }
-
-        .footer .footer-links li a:hover,
-        .footer .footer-links li a:focus {
-          color: rgba(var(--color-white-rgb), 1);
-        }
-
-        .footer .footer-legal {
-          background: var(--color-black);
-          padding: 40px 0;
-        }
-
-        .footer .footer-legal .social-links a {
-          text-align: center;
-          display: inline-block;
-          width: 40px;
-          height: 40px;
-          background-color: rgba(var(--color-white-rgb), 0.09);
-          border-radius: 50%;
-          color: var(--color-white);
-          line-height: 40px;
-        }
-
-        .footer .footer-legal .social-links a:hover {
-          background-color: rgba(var(--color-white-rgb), 0.2);
-        }
-
-        .footer .copyright strong {
-          font-weight: 400;
-        }
-
-        .footer .credits {
-          padding-top: 6px;
-          font-size: 13px;
-        }
-
-        .footer .credits a {
-          color: var(--color-white);
-        }
-
-        .form-control.rounded {
-          max-width: 400px;
-          font-size: 14px; 
-          border-color: #EBA163 ;
-           box-shadow: 0 0 0 0.2rem rgba(255, 218, 185, 0.25) ; 
-        }
-
-        .input-group {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .btn-outline-warning {
-          border-color: orange;
-          color: white;
-          background-color: #EBA163;
-        }
-
-        .btn-outline-warning:hover {
-          background-color: #EBA163 ;
-          color: white;
-        }
-
-        .btn-outline-primary:active {
-          box-shadow: 0 0 0 0.2rem rgba(255, 218, 185, 0.25), inset 0 2px 5px rgba(0, 0, 0, 0.125); 
-        } 
-
-
-    </style>
+ 
 
 
 <body>
@@ -242,8 +52,8 @@ $result = mysqli_query($conn, $sql);
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-         <!-- <img src="assets/img/logo.png" alt="Aice Logo"> -->
-         <h1> Aice </h1>
+         <h4> Bite that </h4>
+         <h1><img src="img/cookie-icon.png" alt="Cookie Icon" style="height: 70px; width: 70px; margin-top:5px;"></h1>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -257,12 +67,22 @@ $result = mysqli_query($conn, $sql);
       </nav><!-- .navbar -->
 
       <div class="position-relative">
-        <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
-        <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-        <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
+        <a href="#" class="mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+</svg></a>
+        <a href="#" class="mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+</svg></a>
+        <a href="#" class="mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+</svg></a>
 
-        <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        <a href="#" class="mx-2 js-search-open"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-heart-fill" viewBox="0 0 16 16">
+  <path d="M6.5 13a6.47 6.47 0 0 0 3.845-1.258h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1A6.47 6.47 0 0 0 13 6.5 6.5 6.5 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13m0-8.518c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018"/>
+</svg></a>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>
 
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
@@ -321,10 +141,16 @@ $result = mysqli_query($conn, $sql);
                 </div>
               </div>
               <div class="custom-swiper-button-next">
-                <span class="bi-chevron-right"></span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+  <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+</svg>
               </div>
               <div class="custom-swiper-button-prev">
-                <span class="bi-chevron-left"></span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+  <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+</svg>
               </div>
 
               <div class="swiper-pagination"></div>
@@ -353,8 +179,9 @@ $result = mysqli_query($conn, $sql);
             <img src='subdirectory/<?php echo $row['image']; ?>' class="card-img-top" alt='Product Image' style='height: 200px; object-fit: cover;'>
               <div class="card-body">
                 <h5 class="card-title"><?php echo $row['name']; ?></h5>
-               <p class="card-text">Price: <?php echo $row['price']; ?></p>
-                <button class="button">Buy Now</button>
+               <p class="card-text">Price: ₱  <?php echo $row['price']; ?></p>
+                <button class="button">Buy Now</button> 
+                <button class="button">Add to Cart</button>
               </div>
             </div>
             <?php
@@ -371,7 +198,7 @@ $result = mysqli_query($conn, $sql);
     </main>
     <br/><br/><br/><br/><br/>
 
-  <!-- ======= Footer ======= -->
+
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
@@ -380,7 +207,7 @@ $result = mysqli_query($conn, $sql);
 
         <div class="row g-5">
           <div class="col-lg-4">
-            <h3 class="footer-heading">ABOUT AICE</h3>
+            <h3 class="footer-heading">ABOUT Bite that COOKIE</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
             <p><a href="about.html" class="footer-link-more">Learn More</a></p>
           </div>
@@ -408,7 +235,7 @@ $result = mysqli_query($conn, $sql);
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">CONTACT US</h3>
             <ul class="footer-links list-unstyled">
-            <li><a href="#">info@aicecookie.com</a></li>
+            <li><a href="#">info@cookie.com</a></li>
             <li><a href="#">0969-7499-959</a></li>
             </ul>
           </div>
@@ -434,12 +261,10 @@ $result = mysqli_query($conn, $sql);
         <div class="row justify-content-between">
           <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
             <div class="copyright">
-              © Copyright <strong><span>Aice</span></strong>. All Rights Reserved
+              © Copyright <strong><span>2024</span></strong>. All Rights Reserved
             </div>
 
-            <div class="credits">
-              Designed by <a href="#">BootstrapMade</a>
-            </div>
+        
 
           </div>
         </div>
@@ -452,19 +277,13 @@ $result = mysqli_query($conn, $sql);
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-<<<<<<< HEAD
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="vendor/aos/aos.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-=======
+
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/swiper/swiper-bundle.min.js"></script>
   <script src="vendor/glightbox/js/glightbox.min.js"></script>
   <script src="vendor/aos/aos.js"></script>
   <script src="vendor/php-email-form/validate.js"></script>
->>>>>>> 6d2b079644b6d4ca5e5bcbfd55f3838509a2b0a5
+
 
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>

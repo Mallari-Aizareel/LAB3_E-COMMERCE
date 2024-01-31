@@ -1,0 +1,87 @@
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: url('../img/1.jpg') center/cover no-repeat;
+}
+
+.panel__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 800px; /* Adjust the width as needed */
+    height: 430px; /* Adjust the height as needed */
+    padding: 20px;
+}
+
+.panel__left {
+    width: 50%;
+    max-width: 350px; /* Adjust the maximum width as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel__left img {
+    max-width: 300px; /* Adjust the maximum width as needed */
+    max-height: 150px; /* Adjust the maximum height as needed */
+    border-radius: 20px;
+}
+
+.panel__right {
+    width: 50%;
+    max-width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Adjusted border-radius to match left panel */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+}
+
+.form-signin {
+    width: 100%;
+}
+
+.password__show-password {
+    background-color: unset;
+    user-select: none;
+    cursor: pointer;
+}
+
+.password__show-password img {
+    color: black;
+}
+
+.password__show-password.clicked img {
+    color: blue;
+}
+
+.form-signin input[type="email"],
+.form-signin input[type="password"] {
+    margin-bottom: 15px;
+}
+
+/* Style the "Login here" link as a blue button */
+.btn-login {
+    color:  #007bff;
+    /* background-color: #007bff; */
+    /* border-color: #007bff; */
+}
+
+
+
+/* Style the checkbox */
+.form-check-label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-check-input {
+    margin-right: 5px;
+}

@@ -26,12 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (mysqli_query($conn, $insertQuery)) {
             // Registration successful
-            echo "Account created successfully!";
+            echo "<script>alert('Account created successfully!');</script>";
         } else {
             // Registration failed
-            echo "Error: " . $insertQuery . "<br>" . mysqli_error($conn);
+            echo "<script>alert('Error: " . $insertQuery . "<br>" . mysqli_error($conn) . "');</script>";
         }
     }
 }
-
 ?>
