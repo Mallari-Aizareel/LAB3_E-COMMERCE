@@ -39,7 +39,7 @@ $result = mysqli_query($conn, $sql);
 </head>
 
     <style>
-        #header {
+        #header { 
             background-color: #FFFBFB;
             border-top: 1px solid darkred;
             border-bottom: 1px solid darkred;
@@ -229,7 +229,7 @@ $result = mysqli_query($conn, $sql);
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="vendor/aos/aos.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
