@@ -10,53 +10,38 @@ include "config/registerUser.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
 
     <style>
-
-body {
-        margin: 0;
-        background: url('img/1.jpg') center/cover no-repeat;
-    }
-
-    .outer-wrapper {
-        position: fixed;
-        top: 550px;
-        left: 1000px;
-        transform: translate(-50%, -50%);
-        width: 40vw; /* Adjust the width as needed */
-        height: 21vw; /* Adjust the height as needed to make it square */
-        z-index: -1;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.8); /* Set the background color and opacity */
-        border-radius: 30px; /* Adjust the border-radius for rounded corners */
-    }
+         body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: url('img/1.jpg') center/cover no-repeat;
+        }
 
         .panel__wrapper {
-            position: relative;
             display: flex;
             justify-content: space-between;
-            width: 775px; /* Adjust the width as needed */
+            width: 800px; /* Adjust the width as needed */
             height: 430px; /* Adjust the height as needed */
-            margin: auto;
             padding: 20px;
-            z-index: 1;
         }
 
         .panel__left {
-        width: 60%;
-        max-width: 350px;
-        padding: 30px;
-        border: 1px solid #ccc;
-        border-radius: 20px;
-        background-color: rgba(255, 255, 255, 0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3); /* Add box-shadow for a subtle shadow effect */
-    }
+            width: 50%;
+            max-width: 350px; /* Adjust the maximum width as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         .panel__left img {
             max-width: 300px; /* Adjust the maximum width as needed */
@@ -64,6 +49,14 @@ body {
             border-radius: 20px;
         }
 
+        .panel__center {
+            width: 50%;
+            max-width: 350px; /* Adjust the maximum width as needed */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+        }
         .panel__right {
             width: 50%;
             max-width: 350px;
@@ -71,24 +64,30 @@ body {
             border-radius: 20px;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3); /* Add box-shadow for a subtle shadow effect */
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .form-signin input[type="text"],
-        .form-signin input[type="password"] {
-            margin-bottom: 15px;
-            margin-right: 0; /* Add margin-right to create space on the right side */
-        }
-
-        .password-wrapper {
-            position: relative; /* Add position relative to the wrapper */
+        .form-signin {
+            width: 100%;
         }
 
         .password__show-password {
-            position: absolute;
-            right: 10px; /* Adjust the right position as needed */
-            top: 50%; /* Center vertically */
-            transform: translateY(-50%);
+            background-color: unset;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .password__show-password img {
+            color: black;
+        }
+
+        .password__show-password.clicked img {
+            color: blue;
+        }
+
+        .form-signin input[type="email"],
+        .form-signin input[type="password"] {
+            margin-bottom: 15px;
         }
     </style>
 
@@ -114,40 +113,42 @@ body {
     <!-- Custom styles for this template -->
 </head>
 
-<body style="margin: 1000px; background: url('img/1.jpg') center/cover no-repeat;">
+<body>
 
-    <div class="outer-wrapper">
-        <div class="panel__wrapper">
-            <!-- Left Panel with Image -->
-            <div class="panel__left">
-                <img src="img/2.jpg" alt="Your Image">
-            </div>
-<!-- Right Panel with Login Form -->
-            <div class="panel__right">
-                <main class="form-signin">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
-        <h5 class="mb-1 fw-normal">Create Account</h5>
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username" required>
-                            <label for="floatingInput">Username</label>
-                            <span class="text-danger"><?php echo $usernameErr; ?></span>
-                        </div>
+    <div class="panel__wrapper">
+        <!-- Left Panel with Image -->
+        <div class="panel__left">
+            <img src="img/2.jpg" alt="Your Image">
+        </div>
+        <!-- Right Panel with Login Form -->
+        <div class="panel__right">
+            <main class="form-signin">
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
-           <div class="form-floating password-wrapper">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
-                            <label for="floatingPassword">Password</label>
-                            <!-- Password show/hide removed -->
-                            <span class="text-danger"><?php echo $passwordErr; ?></span>
-                        </div>
+                    <h5 class="mb-1 fw-normal">Create Account</h5>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username" required>
+                        <label for="floatingInput">Username</label>
+                        <span class="text-danger"><?php echo $usernameErr; ?></span>
+                    </div>
 
-            <button class="w-100 btn btn-lg btn-primary" type="submit" value="login">Create</button>
+                    <div class="form-floating password-wrapper">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                        <label for="floatingPassword">Password</label>
+                        <!-- Password show/hide removed -->
+                        <span class="text-danger"><?php echo $passwordErr; ?></span>
+                    </div>
 
-        <!-- Link to go back to the login page -->
-        <p class="mt-3" style="font-size: 23px;"> Already have an account? <a href="login.php">Login here</a></p>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit" value="login">Create</button>
 
-    <!-- Add Bootstrap JS and any other necessary scripts here -->
-
+                    <!-- Link to go back to the login page -->
+                    <p class="mt-3" style="font-size: 23px;"> Already have an account? <a href="login.php">Login here</a></p>
+                </form>
+            </main>
+            <!-- Add Bootstrap JS and any other necessary scripts here -->
+        </div>
+   
+</div>
 </body>
 </html>
-
