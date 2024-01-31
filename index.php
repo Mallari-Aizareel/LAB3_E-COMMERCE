@@ -39,17 +39,12 @@ $result = mysqli_query($conn, $sql);
 </head>
 
     <style>
-<<<<<<< HEAD
+
         #header { 
             background-color: #FFFBFB;
             border-top: 1px solid darkred;
             border-bottom: 1px solid darkred;
-=======
-        #header {
-          background-color: #FFFBFB;
-          border-top: 1px solid darkred;
-          border-bottom: 1px solid darkred;
->>>>>>> 6d2b079644b6d4ca5e5bcbfd55f3838509a2b0a5
+
 /*            height: 60px;*/
         }
 
